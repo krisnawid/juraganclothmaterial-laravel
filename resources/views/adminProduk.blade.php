@@ -50,7 +50,7 @@
                         <span class="text">Edit</span>
                       </a>
                       |
-                      <a href="" role="button" class="btn btn-danger btn-icon-split">
+                      <a href="/adminproduk/hapus/{{ $itemProduk->id }}" role="button" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>

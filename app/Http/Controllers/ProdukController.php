@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produk;
+use File;
 
 class ProdukController extends Controller
 {
@@ -43,6 +44,17 @@ class ProdukController extends Controller
             'deskripsiProduk' => $request->deskripsiProduk,
             'stok' => $request->stok
         ]);
+        
+        return redirect('/adminproduk');
+    }
+
+    public function hapus($id)
+    {
+        # code...
+        $file = Produk::where('id',$id)->first();
+        File::delete('uploads/produk/'.$file->gambarProduk);
+
+        Produk::where('id',$id)->delete();
         
         return redirect('/adminproduk');
     }
