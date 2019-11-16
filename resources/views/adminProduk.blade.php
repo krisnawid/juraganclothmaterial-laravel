@@ -39,7 +39,7 @@
                 @foreach ($dataProduk as $itemProduk)
                     <tr>
                     <td>{{ $itemProduk -> namaProduk }}</td>
-                    <td>{{ $itemProduk -> gambarProduk }}</td>
+                    <td><img width="50px" src="{{ url('/uploads/produk/'.$itemProduk->gambarProduk) }}"></td>
                     <td>{{ $itemProduk -> deskripsiProduk}}</td>
                     <td>{{ $itemProduk -> stok }}</td>
                     <td>

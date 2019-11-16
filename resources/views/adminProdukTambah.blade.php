@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="/adminproduk/tambahProses" method="post">
+            <form action="/adminproduk/tambahProses" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>Nama Produk</label>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi</label>
-                        <textarea class="form-control" rows="3" name="deskripsi"></textarea>
+                        <textarea class="form-control" rows="3" name="deskripsiProduk"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Gambar Produk</label>

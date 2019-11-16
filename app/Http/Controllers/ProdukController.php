@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use App\Produk;
 
 class ProdukController extends Controller
 {
     public function index()
     {
         # code...
-        $produk = DB::table('produk')->get();
+        $produk = Produk::get();
         return view('adminProduk', ['dataProduk' => $produk]);
     }
 
@@ -23,12 +23,27 @@ class ProdukController extends Controller
     public function tambahProses(Request $request)
     {
         # code...
-        DB::table('produk')->insert([
-            'namaProduk' => $request->namaProduk,
-            'deskripsiProduk' => $request->deskripsi,
-            'gambarProduk' => $request->gambarProduk,
-            'stok'=>$request->stok
+        $this->validate($request, [
+            'namaProduk' => 'required',
+            'gambarProduk' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'deskripsiProduk' => 'required',
+            'stok' => 'required'
         ]);
+
+        $file = $request->file('gambarProduk');
+
+        $nama_file = time()."_".$file->getClientOriginalName();
+
+        $tujuan_upload = 'uploads/produk';
+		$file->move($tujuan_upload,$nama_file);
+ 
+		Produk::create([
+			'namaProduk' => $request->namaProduk,
+            'gambarProduk' => $nama_file,
+            'deskripsiProduk' => $request->deskripsiProduk,
+            'stok' => $request->stok
+        ]);
+        
         return redirect('/adminproduk');
     }
 }
