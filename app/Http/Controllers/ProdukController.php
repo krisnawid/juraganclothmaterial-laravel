@@ -58,4 +58,9 @@ class ProdukController extends Controller
         
         return redirect('/adminproduk');
     }
+
+    public function edit($id)
+    {
+        return view('');
+    }
 }

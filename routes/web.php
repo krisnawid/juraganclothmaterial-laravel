@@ -20,3 +20,5 @@ Route::get('/adminproduk', 'ProdukController@index');
 Route::get('/adminproduk/tambah', 'ProdukController@tambah');
 Route::post('/adminproduk/tambahProses', 'ProdukController@tambahProses');
 Route::get('/adminproduk/hapus/{id}', 'ProdukController@hapus');
+Route::get('/adminproduk/edit/{id}', 'ProdukController@edit');
+Route::get('/adminuser', 'UserController@index');

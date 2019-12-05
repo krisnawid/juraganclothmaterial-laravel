@@ -43,7 +43,7 @@
                     <td>{{ $itemProduk -> deskripsiProduk}}</td>
                     <td>{{ $itemProduk -> stok }}</td>
                     <td>
-                      <a href="" role="button" class="btn btn-warning btn-icon-split">
+                    <a href="/adminproduk/edit/{{ $itemProduk-> id }}" role="button" class="btn btn-warning btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-edit"></i>
                         </span>
